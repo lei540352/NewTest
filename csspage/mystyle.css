@@ -1,0 +1,30 @@
+a{
+    font-size: 30px;
+    color: black;
+    background-color: cornflowerblue;
+}
+
+#text111{
+    font-size: 50px;
+    color: #000aaa;
+}
+
+li.aaa{
+    color: red;
+    text-align: center;
+}
+
+td{
+    color:rgb(255,100,100);
+}
+
+dt.aaa{
+    color: yellowgreen;
+}
+
+body{
+    background-image: url('../image/kong.jpg');
+    background-repeat: no-repeat;
+    background-position: right top;//背景位置
+    background-attachment: fixed;//背景不动
+}

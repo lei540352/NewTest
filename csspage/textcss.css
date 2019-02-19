@@ -1,0 +1,143 @@
+h1{
+    text-align: center;
+}
+
+p.date{
+    text-align: right;
+    margin-right: 8px;
+    text-decoration:underline;
+}
+
+div.sticky{
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    padding: 5px;
+    background-color: chocolate;
+    border: 1px solid black;
+}
+
+div.overflow{
+    width: 600px;
+    height: 60px;
+    background-color: chocolate;
+    overflow: auto;
+    float: left;
+}
+
+div.fl{
+    width:28%;
+    height: 60px;
+    float: left;
+    overflow: auto;
+}
+div.flllll{
+    width:100px;
+    height:100px;
+    float: left;
+    overflow: scroll;
+    border: 1px solid red;
+}
+
+p.main{
+    text-align: justify;
+    text-indent: 20px;/* 首行缩进*/
+    letter-spacing:2px;/*字符间距*/
+    line-height: 150%;/*行高*/
+    /** direction: rtl;  从右至左*/
+    /* white-space: nowrap;禁止换行*/
+}
+a{
+    text-decoration: none;
+}
+a.lianjie:link{
+    /*未访问过*/
+    color: black;
+    background-color: yellow;
+}
+a.lianjie:visited{
+    /*已访问*/
+    color:darkorchid;
+    background-color: aquamarine;
+}
+a.lianjie:hover{
+    /*鼠标放上面*/
+    color: dodgerblue;
+    text-decoration: underline;
+    background-color: silver;
+}
+a.lianjie:active{
+    /*鼠标点击*/
+    color: chocolate;
+    background-color: honeydew;
+}
+
+a.lianjie1:link,a.lianjie1:visited{
+    display: block;
+    font-weight: bold;
+    color: white;
+    background-color: darkgreen;
+    width: 100px;
+    text-align: center;
+    padding: 5px;
+    text-decoration: none;
+}
+
+a.lianjie1:hover,a.lianjie1:active{
+    background-color: darkolivegreen;
+}
+
+a.one:link{color: #ff0000}
+a.one:visited{color: #0000ff}
+a.one:hover{color: #ffaa11}
+
+a.two:link{font-size: 15px}
+a.two:visited{font-size: 30px}
+a.two:hover{font-size: 150%}
+
+a.three:link {color:#ff0000;}
+a.three:visited {color:#0000ff;}
+a.three:hover {background:#66ff66;}
+
+a.four:link {color:#ff0000;}
+a.four:visited {color:#0000ff;}
+a.four:hover {font-family:Georgia, serif;}
+
+a.five:link {color:#ff0000;text-decoration:none;}
+a.five:visited {color:#0000ff;text-decoration:none;}
+a.five:hover {text-decoration:underline;}
+
+p.uppercase{
+    text-transform: uppercase;
+    word-spacing: 100px;
+    border-style: none;
+    margin-top: 5%;
+    top: 50%;
+    left: 50%;
+}
+p.lowercase{
+    text-transform: lowercase;
+    text-shadow: 2px 0px #ff0000;
+    border-style: dotted;
+    outline-style: outset;
+}
+p.capitalize{
+    text-transform: capitalize;
+    border-style: dashed;
+    border-width: 0.5px;
+}
+p.solid{
+    border-style: solid;
+    border-width:5px;
+    border-color: red;
+    width: 100px;
+    padding: 20px;
+    margin: auto;
+    height: 400px;
+}
+p.double{border-style: double;}
+p.groove{border-style: groove;}
+p.ridge{border-style: ridge;}
+p.inset{border-style: inset;}
+p.outset{border-style: outset;}
+p.hidden{border-style: hidden;}

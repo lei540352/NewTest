@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>JavaScript练习</title>
+    </head>
+    <body>
+        <script>
+            document.write("写一段话");
+            document.write("<p>写一段落</p>");
+            
+            function myFunction() {
+                alert("弹出");
+                document.getElementById("demo").innerHTML = "改好了的文字";
+                x= document.getElementById("demo");
+                x.style.color = "#ffeeaa";
+            }
+        </script>
+        <span id="demo"> 我的第一个练习JS</span>
+        <button type="button" onclick="myFunction()">点我</button>
+        <img src="image/loading_three.png" id="image" width="60" height="80">
+        <canvas id="myCanvas" width="200" height="100" style="border: 1px solid #000000">
+        </canvas>
+        <canvas id="myCanvas1" width="500" height="500" style="border: 1px solid #000000">
+        </canvas>
+        <script>
+            <!-- 红色方块-->
+            var c = document.getElementById("myCanvas");
+            var ctx = c.getContext("2d");
+            ctx.fillStyle = "#002299";
+            ctx.fillRect(10,10,60,60);
+            <!-- 线条-->
+            ctx.moveTo(0,0);
+            ctx.lineTo(50,90);
+            ctx.fillStyle = "#ff0000";
+            ctx.stroke();
+            <!-- 圆-->
+            ctx.beginPath();
+            ctx.arc(95,50,40,0,2*Math.PI);
+            ctx.stroke();
+            
+            ctx.font = "30px Arial";
+            ctx.fillText("你好，2019！",10,80);//实心
+            ctx.strokeText("你好，2019！",10,50);//空心
+            
+            //渐变
+            var myCanvas1 = document.getElementById("myCanvas1");
+            var myctx = myCanvas1.getContext("2d");
+            var  grd = myctx.createLinearGradient(0,0,200,0);
+            grd.addColorStop(1,"red");
+            grd.addColorStop(0.5,"white");
+            //填充渐变
+            myctx.fillStyle = grd;
+            myctx.fillRect(10,20,300,50);
+
+            var  grd = myctx.createRadialGradient(80,80,8,100,100,40);
+            grd.addColorStop(1,"blue");
+            grd.addColorStop(0.5,"white");
+            //填充渐变
+            myctx.fillStyle = grd;
+            myctx.fillRect(10,100,300,50);
+            
+            //图片绘制
+            var img = document.getElementById("image");
+            myctx.drawImage(img,30,130);
+        </script>
+    </body>
+</html>

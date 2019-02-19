@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Web数据存储与获取</title>
+       
+    </head>
+    <body>
+       
+        <label>登录名称：</label><input type="text" id="loginname"><br>
+        <label>登录密码：</label><input type="password" id="loginpass"><br>
+        <input type="button" value="保存" onclick="save()"><br><br>
+    
+        <input type="button" value="查询" onclick="search()"><br>
+        账号：<input type="text" id="zhanghao">的密码是<label id="mima"></label>
+        <br/>
+        <br>
+        <br>
+        <label>网站名：</label><input type="text" id="sitename"><br>
+        <label>网址：</label><input type="text" id="siteaddress"><br>
+        <input type="button" value="保存" onclick="saveHttp()"><br><br>
+    
+        <input type="button" value="查询" onclick="searchHttp()"><br>
+        网站：<input type="text" id="name">的网址是<label id="address"></label>
+        <div id="list"></div>
+        <script>
+            loadAll();
+            //保存账号密码
+            function save() {
+                var loginname = document.getElementById("loginname");
+                var loginnpass = document.getElementById("loginpass");
+                if(typeof(Storage)!=="undefined")
+                {
+                    localStorage.setItem(loginname.value,loginnpass.value);
+                    alert("保存成功");
+                    loadAll();
+                }
+                else
+                {
+                    document.getElementById("result").innerHTML="对不起，您的浏览器不支持 web 存储。";
+                }
+            }
+            function search() {
+                if(typeof(Storage)!=="undefined")
+                {
+                    mima.innerHTML = localStorage.getItem(zhanghao.value);
+                }
+            }
+
+            function saveHttp() {
+                var site = new Object();
+                site.sitename = document.getElementById("sitename").value;
+                site.siteaddress = document.getElementById("siteaddress").value;
+                if(typeof(Storage)!=="undefined")
+                {
+                    var  str = JSON.stringify(site);//将字符串转化为json
+                    localStorage.setItem(site.sitename,str);
+                    alert("保存成功");
+                    loadAll();
+                }
+                else
+                {
+                    document.getElementById("result").innerHTML="对不起，您的浏览器不支持 web 存储。";
+                }
+            }
+
+            function searchHttp() {
+                var name = document.getElementById("name").value;
+                var str = localStorage.getItem(name);
+                var site = JSON.parse(str);
+                address.innerHTML = site.siteaddress;
+            }
+            //查询所有存储的数据，并显示
+            function loadAll() {
+                var list = document.getElementById("list");//获取父组件
+                if (localStorage.length>0){
+                    var result = "<table border='1'>";
+                    result +="<tr><td>key</td><td>value</td><td>操作</td></tr>";
+                    //遍历存储的数据数组
+                    for (var i=0;i<localStorage.length;i++){
+                        var stiename = localStorage.key(i);
+                        var stievalue = localStorage.getItem(stiename);
+                        result += "<tr><td>"+stiename+"</td><td>"+stievalue+"</td>" +
+                            "<td><input type='button' value='删除' onclick=\"del('"+stiename+"')\"></td></tr>";
+                    }
+                    result += "</table>";
+                    list.innerHTML = result;
+                }else{
+                    list.innerHTML = "数据为空。。。";
+                }
+            }
+
+            function del(name) {
+                localStorage.removeItem(name);
+                alert("删除成功");
+                loadAll();
+            }
+        </script>
+        
+    </body>
+</html>

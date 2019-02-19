@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>拖放实例</title>
+       
+        <style>
+            #div1{
+                width: 100px;
+                height: 100px;
+                padding: 11px;
+                border: 1px solid chartreuse;
+                float: left;
+            }
+            #div2{
+                width: 200px;
+                height: 100px;
+                padding: 11px;
+                border: 1px solid sandybrown;
+                float: left;
+            }
+        </style>
+        <script>
+            //拖动事件  拖动什么
+            function drag(ev) {
+                ev.dataTransfer.setData("Text",ev.target.id);
+            }
+            //放到何处
+            function drop(ev) {
+                ev.preventDefault();
+                var data = ev.dataTransfer.getData("Text");
+                ev.target.appendChild(document.getElementById(data));
+            }
+            
+            function allowDrop(ev) {
+                ev.preventDefault();
+            }
+        </script>
+    </head>
+    <body>
+        
+        <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"><img src="image/o_cha.png" draggable="true" id="image1" ondragstart="drag(event)" width="56" height="56"></div>
+        <div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <!--首先将元素的拖动属性设置为true  将这张图拖动到方框中-->
+        
+        <img src="image/o_dui.png" draggable="false" >
+        
+        <br>
+        <p id="demo">点击按钮获取您当前坐标（可能需要比较长的时间获取）：</p>
+        <button onclick="getLocation()">点我</button>
+        <script>
+            var x=document.getElementById("demo");
+            function getLocation()
+            {
+                if (navigator.geolocation)
+                {
+                    navigator.geolocation.getCurrentPosition(showPosition);
+                }
+                else
+                {
+                    x.innerHTML="该浏览器不支持获取地理位置。";
+                }
+            }
+
+            function showPosition(position)
+            {
+                x.innerHTML="纬度: " + position.coords.latitude +
+                    "<br>经度: " + position.coords.longitude;
+            }
+        </script>
+    </body>
+</html>

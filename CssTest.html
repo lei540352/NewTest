@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!--CSS (Cascading Style Sheets) 用于渲染HTML元素标签的样式. -->
+    <head>
+        <meta charset="UTF-8">
+        <title>CSS 练习</title>
+        <!--内部样式-->
+        <style type="text/css">
+            body{background-color: aquamarine}
+            div{
+                width: 60px;
+                height: 100px ;
+                border:1px ;
+                border-color: red
+            }
+        </style>
+        <!--外部样式-->
+        <link rel="stylesheet" type="text/css" href="csspage/mystyle.css">
+    </head>
+    <body>
+        <div> <b>层</b></div>
+        <h1 style="text-align: center;font-family: Arial;color: rebeccapurple;font-size: 18px;">居中对齐</h1>
+        <a href="Text1.html" style="text-decoration: none">这是一个链接</a>
+        <br/>
+        <p id="text111">图片的对齐方式 <img src="https://system.paneland.com/files/vender_pic/32355.png" align="middle"></p>
+        <br/>
+        <p>图片的浮动方式 <img src="https://system.paneland.com/files/vender_pic/32355.png" width="100px" height="80px" style="float:right"></p>
+
+        <table border="1" cellspacing="0">
+            <caption>标题 </caption>
+            <tr bgcolor="#f4a460"><!-- 表头-->
+                <th width="90px"></th>
+                <th width="90px">B</th>
+                <th width="90px">C</th>
+            </tr>
+            <tr> <!-- 表体-->
+                <th>1</th>
+                <td>2</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <th>3</th>
+                <td>2</td>
+                <td>1</td>
+            </tr>
+        </table>
+        <table border="1" cellpadding="8px"  style="text-align: center" cellspacing="5">
+            <caption>合并单元格 </caption>
+            <tr bgcolor="#f4a460"><!-- 表头-->
+                <th width="90px">A</th>
+                <th colspan="2" width="150px">B</th>
+                
+            </tr>
+            <tr> <!-- 表体-->
+                <th rowspan="2">1</th>
+                <td>2</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>1</td>
+            </tr>
+        </table>
+        
+        <ul style="list-style-type: circle">
+            <li class="aaa">1</li>
+            <li>2</li>
+            <li class="aaa">3</li>
+            <li>4</li>
+        </ul>
+        <ol type="i">
+            <li class="aaa">A</li>
+            <li>B</li>
+            <li class="aaa">C</li>
+            <li>D</li>
+        </ol>
+        
+        <dl>
+            <dt class="aaa">AAA</dt>
+            <dd>---aaa</dd>
+            <dt>BBB</dt>
+            <dd>---bbb</dd>
+        </dl>
+    </body>
+</html>
